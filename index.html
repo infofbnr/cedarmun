@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CedarMUN Conference</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cedar: '#355E3B',
+            beige: '#F5F5DC',
+          },
+          fontFamily: {
+            serif: ['Merriweather', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Fade and slide animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-beige text-cedar font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-cedar text-beige shadow-md fixed w-full top-0 z-50 transition-all duration-500">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold tracking-wide hover:scale-105 transition-transform">CedarMUN</h1>
+      <ul class="hidden md:flex space-x-8">
+        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="#info" class="hover:text-white transition-colors">Info</a></li>
+        <li><a href="#apply" class="hover:text-white transition-colors">Apply</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative bg-cedar text-beige py-32 text-center mt-16 fade-in">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-5xl font-serif font-bold mb-4 animate__animated animate__fadeInDown">CedarMUN 2025</h2>
+      <p class="text-xl mb-2 italic opacity-90">"Diplomacy Rooted in Unity"</p>
+      <p class="text-md opacity-90 mb-6">January 24–25, 2025 · AGBU Center Sin el Fil</p>
+      <a href="#apply" class="bg-beige text-cedar font-semibold px-6 py-3 rounded-full hover:bg-white hover:scale-105 transition-all duration-300">Apply Now</a>
+    </div>
+  </section>
+
+  <!--
+   Created by Manuel Hagopian.
+  -->
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 max-w-5xl mx-auto text-center fade-up">
+    <h3 class="text-3xl font-serif font-bold mb-6 text-cedar">About CedarMUN</h3>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      CedarMUN is a new up-and-coming Model United Nations conference hosted in Lebanon. Our mission is to foster diplomacy,
+      critical thinking, and global awareness among students from diverse backgrounds. At CedarMUN, participants engage in
+      dynamic debates, collaborate on resolutions, and develop leadership skills in a supportive environment.
+      Join us for an unforgettable experience where ideas take root and grow into meaningful action.
+    </p>
+  </section>
+
+  <!-- Info Section -->
+  <section id="info" class="py-16 bg-cedar text-beige text-center fade-up">
+    <h3 class="text-3xl font-serif font-bold mb-6">Conference Details</h3>
+    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div class="hover:scale-105 transition-transform">
+        <h4 class="text-xl font-semibold mb-2">📅 Date</h4>
+        <p>January 24–25, 2025</p>
+      </div>
+      <div class="hover:scale-105 transition-transform">
+        <h4 class="text-xl font-semibold mb-2">📍 Location</h4>
+        <p>AGBU Center Sin el Fil</p>
+      </div>
+      <div class="hover:scale-105 transition-transform">
+        <h4 class="text-xl font-semibold mb-2">⏰ Time</h4>
+        <p>8:00 AM – 6:00 PM daily</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apply Section -->
+  <section id="apply" class="py-16 px-6 text-center fade-up">
+    <h3 class="text-3xl font-serif font-bold mb-8 text-cedar">Applications</h3>
+    <p class="text-lg text-gray-700 mb-10">Select your role to apply for CedarMUN 2025</p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <button onclick="openForm('delegate')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Delegate Form</button>
+      <button onclick="openForm('usher')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Usher Form</button>
+      <button onclick="openForm('chair')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Chair Form</button>
+      <button onclick="openForm('crisis')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Crisis Team Form</button>
+      <button onclick="openForm('guest')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Guest Form</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-cedar text-beige text-center py-6 mt-12 fade-in">
+    <p>&copy; 2025 CedarMUN Conference · All Rights Reserved</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function openForm(type) {
+      const links = {
+        delegate: "https://forms.gle/your_delegate_form",
+        usher: "https://forms.gle/your_usher_form",
+        chair: "https://forms.gle/your_chair_form",
+        crisis: "https://forms.gle/your_crisis_form",
+        guest: "https://forms.gle/your_guest_form",
+      };
+      if (links[type]) window.open(links[type], "_blank");
+    }
+
+    // Fade-in when sections enter view
+    const faders = document.querySelectorAll('.fade-up, .fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fade => {
+      appearOnScroll.observe(fade);
+    });
+  </script>
+</body>
+</html>
