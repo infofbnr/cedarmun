@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CedarMUN Conference</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="unnamed.jpg" />
   <script>
     tailwind.config = {
       theme: {
@@ -50,24 +51,68 @@
   <nav class="bg-cedar text-beige shadow-md fixed w-full top-0 z-50 transition-all duration-500">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold tracking-wide hover:scale-105 transition-transform">CedarMUN</h1>
+      <!-- Desktop links -->
       <ul class="hidden md:flex space-x-8">
         <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
         <li><a href="#info" class="hover:text-white transition-colors">Info</a></li>
         <li><a href="#apply" class="hover:text-white transition-colors">Apply</a></li>
       </ul>
+      <!-- Mobile Hamburger -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cedar text-beige flex flex-col px-4 pb-4">
+      <a href="#about" class="py-2 border-b border-beige hover:text-white transition-colors">About</a>
+      <a href="#info" class="py-2 border-b border-beige hover:text-white transition-colors">Info</a>
+      <a href="#apply" class="py-2 hover:text-white transition-colors">Apply</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="relative bg-cedar text-beige py-32 text-center mt-16 fade-in">
+    <div class="flex justify-center mb-6">
+      <img src="unnamed.jpg" alt="CedarMUN" class="w-36 h-36 rounded-full shadow-xl border-4 border-yellow-200" />
+    </div>
     <div class="max-w-3xl mx-auto">
       <h2 class="text-5xl font-serif font-bold mb-4 animate__animated animate__fadeInDown">CedarMUN 2025</h2>
       <p class="text-xl mb-2 italic opacity-90">"Diplomacy Rooted in Unity"</p>
-      <p class="text-md opacity-90 mb-6">January 24–25, 2025 · AGBU Center Sin el Fil</p>
+      <p class="text-md opacity-90 mb-6">January 24-25, 2025 · AGBU Center Sin el Fil</p>
       <a href="#apply" class="bg-beige text-cedar font-semibold px-6 py-3 rounded-full hover:bg-white hover:scale-105 transition-all duration-300">Apply Now</a>
+
+      <!-- Countdown Timer -->
+      <div class="mt-10 text-center text-2xl font-semibold tracking-wide" id="countdown">
+        <span id="days">00</span> Days 
+        <span id="hours">00</span> Hours 
+        <span id="minutes">00</span> Minutes 
+        <span id="seconds">00</span> Seconds
+      </div>
     </div>
   </section>
 
+  <!-- Committees Section -->
+  <section id="committees" class="py-16 px-6 max-w-5xl mx-auto text-center fade-up">
+    <h3 class="text-3xl font-serif font-bold mb-8 text-cedar">Committees & Topics</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-beige text-cedar rounded-lg shadow-lg p-6 hover:scale-105 transition-transform">
+        <h4 class="text-xl font-semibold mb-2">UNSC</h4>
+        <p>Topic: India-Pakistan Kashmir Dispute</p>
+      </div>
+      <div class="bg-beige text-cedar rounded-lg shadow-lg p-6 hover:scale-105 transition-transform">
+        <h4 class="text-xl font-semibold mb-2">UNHRC</h4>
+        <p>Topic: Female Genital Mutilation and Honor Killings in the Global South</p>
+      </div>
+      <div class="bg-beige text-cedar rounded-lg shadow-lg p-6 hover:scale-105 transition-transform">
+        <h4 class="text-xl font-semibold mb-2">UNODC</h4>
+        <p>Topic: Combating the Dark Web and Digital Black Market for Illicit Goods</p>
+      </div>
+    </div>
+  </section>
   <!--
    Created by Manuel Hagopian.
   -->
@@ -122,32 +167,60 @@
 
   <!-- JS -->
   <script>
-    function openForm(type) {
-      const links = {
-        delegate: "https://forms.gle/your_delegate_form",
-        usher: "https://forms.gle/your_usher_form",
-        chair: "https://forms.gle/your_chair_form",
-        crisis: "https://forms.gle/your_crisis_form",
-        guest: "https://forms.gle/your_guest_form",
-      };
-      if (links[type]) window.open(links[type], "_blank");
-    }
+  function openForm(type) {
+    const links = {
+      delegate: "https://forms.gle/MPHoc2cM7JDXpXWx8",
+      usher: "https://forms.gle/ukVespg5VnVcNpsn8",
+      chair: "https://forms.gle/yXm7mFBtD2ASZiWd7",
+      crisis: "https://forms.gle/PZqTJABUiLkUpWuV7",
+      guest: "https://forms.gle/NgRHnvXYKKk8JWvJ6",
+    };
+    if (links[type]) window.open(links[type], "_blank");
+  }
 
-    // Fade-in when sections enter view
-    const faders = document.querySelectorAll('.fade-up, .fade-in');
-    const appearOptions = { threshold: 0.2 };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-
-    faders.forEach(fade => {
-      appearOnScroll.observe(fade);
+  // Fade-in when sections enter view
+  const faders = document.querySelectorAll('.fade-up, .fade-in');
+  const appearOptions = { threshold: 0.2 };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
     });
+  }, appearOptions);
+
+/*
+MADE BY MANUEL HAGOPIAN
+  */
+
+  faders.forEach(fade => appearOnScroll.observe(fade));
+
+  // Countdown Timer
+  const countdown = () => {
+    const targetDate = new Date("January 24, 2026 08:00:00").getTime();
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000*60*60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000*60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('days').innerText = days.toString().padStart(2,'0');
+    document.getElementById('hours').innerText = hours.toString().padStart(2,'0');
+    document.getElementById('minutes').innerText = minutes.toString().padStart(2,'0');
+    document.getElementById('seconds').innerText = seconds.toString().padStart(2,'0');
+  };
+
+  setInterval(countdown, 1000);
+  countdown(); // initialize immediately
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
   </script>
 </body>
 </html>
