@@ -1,226 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CedarMUN Conference</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/png" href="unnamed.jpg" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cedar: '#355E3B',
-            beige: '#F5F5DC',
-          },
-          fontFamily: {
-            serif: ['Merriweather', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          }
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CedarMUN 2026</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" type="image/png" href="unnamed.jpg" />
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cedar: '#355E3B',
+        beige: '#F5F5DC',
+        gold: '#D4AF37',
+        teal: '#2C7A7B',
+      },
+      fontFamily: {
+        serif: ['Merriweather', 'serif'],
+        sans: ['Inter', 'sans-serif'],
       }
     }
-  </script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Fade and slide animation */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .fade-in {
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    .fade-in.show {
-      opacity: 1;
-    }
-  </style>
-</head>
-<body class="bg-beige text-cedar font-sans">
-
-  <!-- Navbar -->
-  <nav class="bg-cedar text-beige shadow-md fixed w-full top-0 z-50 transition-all duration-500">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold tracking-wide hover:scale-105 transition-transform">CedarMUN</h1>
-      <!-- Desktop links -->
-      <ul class="hidden md:flex space-x-8">
-        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
-        <li><a href="#info" class="hover:text-white transition-colors">Info</a></li>
-        <li><a href="#apply" class="hover:text-white transition-colors">Apply</a></li>
-      </ul>
-      <!-- Mobile Hamburger -->
-      <div class="md:hidden">
-        <button id="menu-btn" class="focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-    </div>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-cedar text-beige flex flex-col px-4 pb-4">
-      <a href="#about" class="py-2 border-b border-beige hover:text-white transition-colors">About</a>
-      <a href="#info" class="py-2 border-b border-beige hover:text-white transition-colors">Info</a>
-      <a href="#apply" class="py-2 hover:text-white transition-colors">Apply</a>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="relative bg-cedar text-beige py-32 text-center mt-16 fade-in">
-    <div class="flex justify-center mb-6">
-      <img src="unnamed.jpg" alt="CedarMUN" class="w-36 h-36 rounded-full shadow-xl border-4 border-yellow-200" />
-    </div>
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-5xl font-serif font-bold mb-4 animate__animated animate__fadeInDown">CedarMUN 2025</h2>
-      <p class="text-xl mb-2 italic opacity-90">"Diplomacy Rooted in Unity"</p>
-      <p class="text-md opacity-90 mb-6">January 24-25, 2025 · AGBU Center Sin el Fil</p>
-      <a href="#apply" class="bg-beige text-cedar font-semibold px-6 py-3 rounded-full hover:bg-white hover:scale-105 transition-all duration-300">Apply Now</a>
-
-      <!-- Countdown Timer -->
-      <div class="mt-10 text-center text-2xl font-semibold tracking-wide" id="countdown">
-        <span id="days">00</span> Days 
-        <span id="hours">00</span> Hours 
-        <span id="minutes">00</span> Minutes 
-        <span id="seconds">00</span> Seconds
-      </div>
-    </div>
-  </section>
-
-  <!-- Committees Section -->
-  <section id="committees" class="py-16 px-6 max-w-5xl mx-auto text-center fade-up">
-    <h3 class="text-3xl font-serif font-bold mb-8 text-cedar">Committees & Topics</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-beige text-cedar rounded-lg shadow-lg p-6 hover:scale-105 transition-transform">
-        <h4 class="text-xl font-semibold mb-2">UNSC</h4>
-        <p>Topic: India-Pakistan Kashmir Dispute</p>
-      </div>
-      <div class="bg-beige text-cedar rounded-lg shadow-lg p-6 hover:scale-105 transition-transform">
-        <h4 class="text-xl font-semibold mb-2">UNHRC</h4>
-        <p>Topic: Female Genital Mutilation and Honor Killings in the Global South</p>
-      </div>
-      <div class="bg-beige text-cedar rounded-lg shadow-lg p-6 hover:scale-105 transition-transform">
-        <h4 class="text-xl font-semibold mb-2">UNODC</h4>
-        <p>Topic: Combating the Dark Web and Digital Black Market for Illicit Goods</p>
-      </div>
-    </div>
-  </section>
-  <!--
-   Created by Manuel Hagopian.
-  -->
-
-  <!-- About Section -->
-  <section id="about" class="py-16 px-6 max-w-5xl mx-auto text-center fade-up">
-    <h3 class="text-3xl font-serif font-bold mb-6 text-cedar">About CedarMUN</h3>
-    <p class="text-lg text-gray-700 leading-relaxed">
-      CedarMUN is a new up-and-coming Model United Nations conference hosted in Lebanon. Our mission is to foster diplomacy,
-      critical thinking, and global awareness among students from diverse backgrounds. At CedarMUN, participants engage in
-      dynamic debates, collaborate on resolutions, and develop leadership skills in a supportive environment.
-      Join us for an unforgettable experience where ideas take root and grow into meaningful action.
-    </p>
-  </section>
-
-  <!-- Info Section -->
-  <section id="info" class="py-16 bg-cedar text-beige text-center fade-up">
-    <h3 class="text-3xl font-serif font-bold mb-6">Conference Details</h3>
-    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-      <div class="hover:scale-105 transition-transform">
-        <h4 class="text-xl font-semibold mb-2">📅 Date</h4>
-        <p>January 24–25, 2025</p>
-      </div>
-      <div class="hover:scale-105 transition-transform">
-        <h4 class="text-xl font-semibold mb-2">📍 Location</h4>
-        <p>AGBU Center Sin el Fil</p>
-      </div>
-      <div class="hover:scale-105 transition-transform">
-        <h4 class="text-xl font-semibold mb-2">⏰ Time</h4>
-        <p>8:00 AM – 6:00 PM daily</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Apply Section -->
-  <section id="apply" class="py-16 px-6 text-center fade-up">
-    <h3 class="text-3xl font-serif font-bold mb-8 text-cedar">Applications</h3>
-    <p class="text-lg text-gray-700 mb-10">Select your role to apply for CedarMUN 2025</p>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-      <button onclick="openForm('delegate')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Delegate Form</button>
-      <button onclick="openForm('usher')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Usher Form</button>
-      <button onclick="openForm('chair')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Chair Form</button>
-      <button onclick="openForm('crisis')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Crisis Team Form</button>
-      <button onclick="openForm('guest')" class="bg-cedar text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-900 hover:scale-105 transition-all duration-300">Guest Form</button>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-cedar text-beige text-center py-6 mt-12 fade-in">
-    <p>&copy; 2025 CedarMUN Conference · All Rights Reserved</p>
-  </footer>
-
-  <!-- JS -->
-  <script>
-  function openForm(type) {
-    const links = {
-      delegate: "https://forms.gle/MPHoc2cM7JDXpXWx8",
-      usher: "https://forms.gle/ukVespg5VnVcNpsn8",
-      chair: "https://forms.gle/yXm7mFBtD2ASZiWd7",
-      crisis: "https://forms.gle/PZqTJABUiLkUpWuV7",
-      guest: "https://forms.gle/NgRHnvXYKKk8JWvJ6",
-    };
-    if (links[type]) window.open(links[type], "_blank");
   }
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+/* Animations */
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-up.show { opacity:1; transform:translateY(0);}
+.fade-in {opacity:0; transition:opacity 1s ease;}
+.fade-in.show {opacity:1;}
+</style>
+</head>
+<body class="bg-beige text-cedar font-sans relative">
 
-  // Fade-in when sections enter view
-  const faders = document.querySelectorAll('.fade-up, .fade-in');
-  const appearOptions = { threshold: 0.2 };
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, appearOptions);
+<!-- Navbar -->
+<nav class="bg-cedar text-beige shadow-md fixed w-full top-0 z-50 transition-all duration-500">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold tracking-wide hover:scale-105 transition-transform">CedarMUN</h1>
+    <ul class="hidden md:flex space-x-8">
+      <li><a href="#about" class="hover:text-gold transition-colors">About</a></li>
+      <li><a href="#info" class="hover:text-gold transition-colors">Info</a></li>
+      <li><a href="#apply" class="hover:text-gold transition-colors">Apply</a></li>
+      <li><a href="#committees" class="hover:text-gold transition-colors">Committees</a></li>
+      <li><a href="#faq" class="hover:text-gold transition-colors">FAQ</a></li>
+    </ul>
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-cedar text-beige flex flex-col px-4 pb-4">
+    <a href="#about" class="py-2 border-b border-beige hover:text-gold transition-colors">About</a>
+    <a href="#info" class="py-2 border-b border-beige hover:text-gold transition-colors">Info</a>
+    <a href="#apply" class="py-2 border-b border-beige hover:text-gold transition-colors">Apply</a>
+    <a href="#committees" class="py-2 border-b border-beige hover:text-gold transition-colors">Committees</a>
+    <a href="#faq" class="py-2 hover:text-gold transition-colors">FAQ</a>
+  </div>
+</nav>
 
-/*
-MADE BY MANUEL HAGOPIAN
-  */
+<!-- Hero Section -->
+<section class="relative bg-cedar text-beige py-32 text-center mt-16 fade-in">
+  <div class="flex justify-center mb-6">
+    <img src="unnamed.jpg" alt="CedarMUN" class="w-24 sm:w-36 h-24 sm:h-36 rounded-full shadow-xl border-4 border-gold" />
+  </div>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl sm:text-5xl font-serif font-bold mb-4">CedarMUN 2026</h2>
+    <p class="text-lg sm:text-xl mb-2 italic opacity-90">"Diplomacy Rooted in Unity"</p>
+    <p class="text-md sm:text-lg opacity-90 mb-6">January 24–25, 2026 · AGBU Center Sin el Fil</p>
+    <a href="#apply" class="bg-gold text-cedar font-semibold px-6 py-3 rounded-full hover:bg-yellow-300 hover:scale-105 transition-all duration-300">Apply Now</a>
 
-  faders.forEach(fade => appearOnScroll.observe(fade));
+    <!-- Countdown Timer -->
+    <div class="mt-10 text-center text-lg sm:text-2xl font-semibold tracking-wide" id="countdown">
+      <span id="days">00</span> Days 
+      <span id="hours">00</span> Hours 
+      <span id="minutes">00</span> Minutes 
+      <span id="seconds">00</span> Seconds
+    </div>
+  </div>
+</section>
 
-  // Countdown Timer
-  const countdown = () => {
-    const targetDate = new Date("January 24, 2026 08:00:00").getTime();
-    const now = new Date().getTime();
-    const diff = targetDate - now;
+<!-- Committees -->
+<section id="committees" class="py-16 px-4 sm:px-6 max-w-5xl mx-auto text-center fade-up">
+  <h3 class="text-3xl font-serif font-bold mb-8 text-cedar">Committees & Topics</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="bg-beige text-cedar rounded-lg shadow-lg p-4 sm:p-6 hover:scale-105 transition-transform">
+      <h4 class="text-lg md:text-xl font-semibold mb-2">UNSC</h4>
+      <p class="text-sm md:text-base">India-Pakistan Kashmir Dispute</p>
+    </div>
+    <div class="bg-beige text-cedar rounded-lg shadow-lg p-4 sm:p-6 hover:scale-105 transition-transform">
+      <h4 class="text-lg md:text-xl font-semibold mb-2">UNHRC</h4>
+      <p class="text-sm md:text-base">Female Genital Mutilation and Honor Killings in the Global South</p>
+    </div>
+    <div class="bg-beige text-cedar rounded-lg shadow-lg p-4 sm:p-6 hover:scale-105 transition-transform">
+      <h4 class="text-lg md:text-xl font-semibold mb-2">UNODC</h4>
+      <p class="text-sm md:text-base">Combating the Dark Web & Digital Black Market</p>
+    </div>
+  </div>
+</section>
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000*60*60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000*60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+<!-- About Section -->
+<section id="about" class="py-16 px-4 sm:px-6 max-w-5xl mx-auto text-center fade-up">
+  <h3 class="text-3xl font-serif font-bold mb-6 text-cedar">About CedarMUN</h3>
+  <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
+    CedarMUN is a brand-new Model United Nations conference making its debut in Lebanon. This is your chance to be part of its first-ever edition, where participants will engage in meaningful debates, collaborate on resolutions, and build leadership skills. Join us as we embark on this exciting journey together!
+  </p>
+</section>
 
-    document.getElementById('days').innerText = days.toString().padStart(2,'0');
-    document.getElementById('hours').innerText = hours.toString().padStart(2,'0');
-    document.getElementById('minutes').innerText = minutes.toString().padStart(2,'0');
-    document.getElementById('seconds').innerText = seconds.toString().padStart(2,'0');
+<!-- Info Section -->
+<section id="info" class="py-16 bg-cedar text-beige text-center fade-up">
+  <h3 class="text-3xl font-serif font-bold mb-6">Conference Details</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+    <div class="hover:scale-105 transition-transform">
+      <h4 class="text-xl font-semibold mb-2">📅 Date</h4>
+      <p>January 24-25, 2026</p>
+    </div>
+    <div class="hover:scale-105 transition-transform">
+      <h4 class="text-xl font-semibold mb-2">📍 Location</h4>
+      <p>AGBU Center Sin el Fil</p>
+    </div>
+    <div class="hover:scale-105 transition-transform">
+      <h4 class="text-xl font-semibold mb-2">⏰ Time</h4>
+      <p>8:00 AM - 6:00 PM daily</p>
+    </div>
+  </div>
+</section>
+
+<!-- Applications Section -->
+<section id="apply" class="py-16 px-4 sm:px-6 text-center fade-up">
+  <h3 class="text-3xl font-serif font-bold mb-8 text-cedar">Applications</h3>
+  <p class="text-base sm:text-lg text-gray-700 mb-10">Select your role to apply for CedarMUN 2026</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+    <button onclick="openForm('delegate')" class="w-full bg-teal text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-700 hover:scale-105 transition-all duration-300">Delegate</button>
+    <button onclick="openForm('usher')" class="w-full bg-teal text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-700 hover:scale-105 transition-all duration-300">Usher</button>
+    <button onclick="openForm('chair')" class="w-full bg-teal text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-700 hover:scale-105 transition-all duration-300">Chair</button>
+    <button onclick="openForm('crisis')" class="w-full bg-teal text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-700 hover:scale-105 transition-all duration-300">Crisis Team</button>
+    <button onclick="openForm('guest')" class="w-full bg-teal text-beige px-6 py-4 rounded-lg font-semibold hover:bg-green-700 hover:scale-105 transition-all duration-300">Guest</button>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-16 px-4 sm:px-6 max-w-5xl mx-auto fade-up">
+  <h3 class="text-3xl font-serif font-bold mb-8 text-cedar text-center">FAQ</h3>
+  <div class="space-y-4">
+    <details class="bg-beige p-4 rounded-lg shadow-md">
+      <summary class="font-semibold cursor-pointer">What is the dress code?</summary>
+      <p class="mt-2 text-gray-700">Formal business attire is recommended for all delegates.</p>
+    </details>
+    <details class="bg-beige p-4 rounded-lg shadow-md">
+      <summary class="font-semibold cursor-pointer">How long is the MUN?</summary>
+      <p class="mt-2 text-gray-700">CedarMUN will be for 2 days, January 24 and 25.</p>
+    </details>
+    <details class="bg-beige p-4 rounded-lg shadow-md">
+      <summary class="font-semibold cursor-pointer">How do I contact organizers?</summary>
+      <p class="mt-2 text-gray-700">Email us at <a href="mailto:cedarmun@yahoo.com" class="text-teal hover:underline">cedarmun@yahoo.com</a>, or text us on <a href="https://wa.me/+96179302663" class="text-teal hover:underline">WhatsApp</a>.</p>
+    </details>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section id="location" class="py-16 px-4 sm:px-6 fade-up text-center">
+  <h3 class="text-3xl font-serif font-bold mb-8 text-cedar">Location</h3>
+  <iframe class="w-full h-64 sm:h-96 rounded-lg shadow-md" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.3247765245723!2d35.533954!3d33.878744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f18c9d6b5d1c3%3A0x3f6c2d44d1b3f5e7!2sAGBU%20Center!5e0!3m2!1sen!2slb!4v1708660812345!5m2!1sen!2slb" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<!-- Footer -->
+<footer class="bg-cedar text-beige text-center py-6 mt-12 fade-in">
+  <p>&copy; 2026 CedarMUN Conference · All Rights Reserved</p>
+</footer>
+
+<!-- JS -->
+<script>
+function openForm(type) {
+  const links = {
+    delegate: "https://forms.gle/MPHoc2cM7JDXpXWx8",
+    usher: "https://forms.gle/ukVespg5VnVcNpsn8",
+    chair: "https://forms.gle/yXm7mFBtD2ASZiWd7",
+    crisis: "https://forms.gle/PZqTJABUiLkUpWuV7",
+    guest: "https://forms.gle/NgRHnvXYKKk8JWvJ6",
   };
+  if (links[type]) window.open(links[type], "_blank");
+}
 
-  setInterval(countdown, 1000);
-  countdown(); // initialize immediately
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
+// Fade-in when scrolling
+const faders = document.querySelectorAll('.fade-up, .fade-in');
+const appearOptions = { threshold: 0.2 };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
   });
-  </script>
+}, appearOptions);
+faders.forEach(fade => appearOnScroll.observe(fade));
+
+// Countdown Timer
+const countdown = () => {
+  const targetDate = new Date("January 24, 2026 08:00:00").getTime();
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000*60*60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000*60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  document.getElementById('days').innerText = days.toString().padStart(2,'0');
+  document.getElementById('hours').innerText = hours.toString().padStart(2,'0');
+  document.getElementById('minutes').innerText = minutes.toString().padStart(2,'0');
+  document.getElementById('seconds').innerText = seconds.toString().padStart(2,'0');
+};
+
+// Initialize
+setInterval(countdown, 1000);
+countdown();
+
+// Mobile menu toggle
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('mobile-menu');
+btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+</script>
 </body>
 </html>
